@@ -1,0 +1,30 @@
+{
+  "name": "Python Course",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "njpwerner.autodocstring",
+        "streetsidesoftware.code-spell-checker-russian",
+        "eamodio.gitlens"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "editor.formatOnSave": true,
+        "python.formatting.provider": "black",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "files.autoSave": "afterDelay",
+        "editor.fontSize": 15,
+        "editor.lineHeight": 24,
+        "workbench.colorTheme": "Default Dark Modern"
+      }
+    }
+  },
+  "postCreateCommand": "pip install pytest black requests beautifulsoup4 --quiet && echo '✅ Среда готова! Можно начинать.'",
+  "forwardPorts": [],
+  "remoteUser": "vscode"
+}
