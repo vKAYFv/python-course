@@ -1,7 +1,6 @@
 {
   "name": "Python Course",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
-  "features": {},
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -15,7 +14,6 @@
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
         "editor.formatOnSave": true,
-        "python.formatting.provider": "black",
         "terminal.integrated.defaultProfile.linux": "bash",
         "files.autoSave": "afterDelay",
         "editor.fontSize": 15,
@@ -24,7 +22,6 @@
       }
     }
   },
-  "postCreateCommand": "pip install pytest black requests beautifulsoup4 --quiet && echo '✅ Среда готова! Можно начинать.'",
-  "forwardPorts": [],
+  "postCreateCommand": "pip install -r requirements.txt --quiet && echo '✅ Среда готова! Можно начинать.'",
   "remoteUser": "vscode"
 }
