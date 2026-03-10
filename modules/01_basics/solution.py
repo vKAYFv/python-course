@@ -1,74 +1,62 @@
 """
-Решения к модулю 01.
+Модуль 01 — Решения
 ⚠️  Загляни сюда только после того, как попробовал сам!
 """
 
 
-def приветствие(имя: str, возраст: int) -> str:
-    # Определяем правильное окончание
-    if возраст % 100 in range(11, 20):
-        окончание = "лет"
-    elif возраст % 10 == 1:
-        окончание = "год"
-    elif возраст % 10 in [2, 3, 4]:
-        окончание = "года"
-    else:
-        окончание = "лет"
-    return f"Привет, {имя}! Тебе {возраст} {окончание}."
+def greeting(name: str, age: int) -> str:
+    return f"Hello, {name}! You are {age} years old."
 
 
-def калькулятор(a: float, b: float, операция: str) -> float | None:
-    if операция == "+":
+def calculator(a: float, b: float, operation: str) -> float | None:
+    if operation == "+":
         return a + b
-    elif операция == "-":
+    elif operation == "-":
         return a - b
-    elif операция == "*":
+    elif operation == "*":
         return a * b
-    elif операция == "/":
+    elif operation == "/":
         if b == 0:
-            return None
+            return None  # деление на ноль — возвращаем None
         return a / b
 
 
-def чётное(n: int) -> bool:
-    return n % 2 == 0
+def is_even(n: int) -> bool:
+    return n % 2 == 0  # остаток от деления на 2 равен 0 → чётное
 
 
-def буква_оценки(оценка: int) -> str:
-    if оценка >= 90:
+def letter_grade(score: int) -> str:
+    if score >= 90:
         return "A"
-    elif оценка >= 80:
+    elif score >= 80:
         return "B"
-    elif оценка >= 70:
+    elif score >= 70:
         return "C"
-    elif оценка >= 60:
+    elif score >= 60:
         return "D"
     else:
         return "F"
 
 
-def сумма_до(n: int) -> int:
-    return sum(range(1, n + 1))
-    # Или математически: return n * (n + 1) // 2
+def sum_to(n: int) -> int:
+    # Математическая формула: сумма от 1 до n = n*(n+1)/2
+    return n * (n + 1) // 2
 
 
-def количество_чётных(a: int, b: int) -> int:
-    count = 0
-    for i in range(a, b + 1):
-        if i % 2 == 0:
-            count += 1
-    return count
+def count_even(a: int, b: int) -> int:
+    # Считаем числа в диапазоне, которые делятся на 2 без остатка
+    return sum(1 for i in range(a, b + 1) if i % 2 == 0)
 
 
-def треугольник(n: int) -> None:
+def triangle(n: int) -> None:
     for i in range(1, n + 1):
-        print("*" * i)
+        print("*" * i)  # i звёздочек на i-й строке
 
 
 def fizzbuzz(n: int) -> list:
     result = []
     for i in range(1, n + 1):
-        if i % 15 == 0:
+        if i % 15 == 0:       # делится на 3 и на 5 → проверяем первым
             result.append("FizzBuzz")
         elif i % 3 == 0:
             result.append("Fizz")
